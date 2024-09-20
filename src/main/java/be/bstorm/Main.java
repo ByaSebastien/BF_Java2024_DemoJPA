@@ -1,15 +1,15 @@
 package be.bstorm;
 
-import be.bstorm.entities.Book;
-import be.bstorm.entities.Mayor;
-import be.bstorm.entities.Municipality;
-import be.bstorm.entities.Province;
+import be.bstorm.entities.*;
 import be.bstorm.repositories.BookRepository;
 import be.bstorm.repositories.impls.BookRepositoryImpl;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {

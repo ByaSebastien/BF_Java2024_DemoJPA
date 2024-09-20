@@ -3,6 +3,7 @@ package be.bstorm.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 public class UserBookRent {
@@ -67,5 +68,18 @@ public class UserBookRent {
                 ", book=" + book +
                 ", user=" + user +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserBookRent that = (UserBookRent) o;
+        return Objects.equals(id, that.id) && Objects.equals(rentDate, that.rentDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, rentDate);
     }
 }

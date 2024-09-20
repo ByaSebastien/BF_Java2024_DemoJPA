@@ -3,6 +3,8 @@ package be.bstorm.entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
+import java.util.Objects;
+
 @Embeddable
 public class Address {
 
@@ -46,5 +48,27 @@ public class Address {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return Objects.equals(street, address.street) && Objects.equals(city, address.city) && Objects.equals(state, address.state);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(street, city, state);
     }
 }

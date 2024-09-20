@@ -3,6 +3,8 @@ package be.bstorm.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 public class Municipality {
 
@@ -65,5 +67,18 @@ public class Municipality {
                 ", mayor=" + mayor +
                 ", province=" + province +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Municipality that = (Municipality) o;
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 }

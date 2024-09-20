@@ -2,6 +2,8 @@ package be.bstorm.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 public class Mayor {
 
@@ -48,5 +50,18 @@ public class Mayor {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mayor mayor = (Mayor) o;
+        return Objects.equals(id, mayor.id) && Objects.equals(name, mayor.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 }
